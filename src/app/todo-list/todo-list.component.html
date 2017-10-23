@@ -5,6 +5,7 @@
 <div class="container">
     <div class="jumbotron">
         <h2> {{title}}</h2> <h3> My todo task today:</h3>
+        <!--Todo list elements-->
         <ul class="todo">
 	        <li *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)' >
 	        	<em><span class="id">{{todo.id}}</span></em>
@@ -13,6 +14,7 @@
 	        	<span class="time">{{todo.time}}</span>
 	        </li>
         </ul>
+        <!--Todolist selection-->
         <div *ngIf="selectTodo">
         	<h2> {{selectTodo.name}} task details</h2>
         	<div>
@@ -25,11 +27,23 @@
   			<div>
   				<label>place:</label>
   				<input [(ngModel)]="selectTodo.place" placeholder="place">
-  			</div> 
+  			</div>
 			<div>
 				<label>time:</label>
 					<input [(ngModel)]="selectTodo.time" placeholder="time">
         </div>
+        </div>
+        <!--Adding todolist element form-->
+        <div>
+          <label>Name : </label>
+          <input [(ngModel)]="todo.name" placeholder="name" />
+          <label>Place : </label>
+          <input [(ngModel)]="todo.place" placeholder="place" />
+          <label>Time : </label>
+          <input [(ngModel)]="todo.time" placeholder="time" />
+          <button (click)="add(todo); hero=null">
+            Add
+          </button>
         </div>
 
     </div>

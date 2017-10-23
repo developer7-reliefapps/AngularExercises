@@ -1,3 +1,6 @@
 <h2>
-  youtube-player works!
+  youtube-player works!!!
 </h2>
+<label>Video address: </label><input [(ngModel)]="videoUrl" />
+
+<iframe [src]="videoUrl | safe">The video will display here </iframe>

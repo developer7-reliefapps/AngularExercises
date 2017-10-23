@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class YoutubePlayerComponent implements OnInit {
 
-  constructor() { }
+private dangerousVideoUrl: string;
+private videoUrl: any;
+
+  constructor(
+
+  ) { }
 
   ngOnInit() {
   }
