@@ -1,50 +1,40 @@
-<p>
-  todo-list works!
-</p>
+{{ diagnostic }}
 
-<div class="container">
-    <div class="jumbotron">
-        <h2> {{title}}</h2> <h3> My todo task today:</h3>
-        <!--Todo list elements-->
-        <ul class="todo">
-	        <li *ngFor="let todo of todolist" [class.selected]="todo === selectTodo" (click)='onSelect(todo)' >
-	        	<em><span class="id">{{todo.id}}</span></em>
-	        	<span class="name">{{todo.name}}</span>
-	        	<span class="place">{{todo.place}}</span>
-	        	<span class="time">{{todo.time}}</span>
-	        </li>
-        </ul>
-        <!--Todolist selection-->
-        <div *ngIf="selectTodo">
-        	<h2> {{selectTodo.name}} task details</h2>
-        	<div>
-        	<label>id: </label>{{selectTodo.id}}
-        	</div>
-  			<div>
-	    		<label>name: </label>
-	    		<input [(ngModel)]="selectTodo.name" placeholder="name"/>
-  			</div>
-  			<div>
-  				<label>place:</label>
-  				<input [(ngModel)]="selectTodo.place" placeholder="place">
-  			</div>
-			<div>
-				<label>time:</label>
-					<input [(ngModel)]="selectTodo.time" placeholder="time">
-        </div>
-        </div>
-        <!--Adding todolist element form-->
-        <div>
-          <label>Name : </label>
-          <input [(ngModel)]="todo.name" placeholder="name" />
-          <label>Place : </label>
-          <input [(ngModel)]="todo.place" placeholder="place" />
-          <label>Time : </label>
-          <input [(ngModel)]="todo.time" placeholder="time" />
-          <button (click)="add(todo); hero=null">
-            Add
-          </button>
-        </div>
-
+<div id="todo-list">
+    <div *ngFor="let todo of todolist" (click)="onSelect(todo)">
+      <span>{{todo.id}}</span>
+      <span>{{todo.name}}</span>
+      <span>{{todo.place}}</span>
+      <span>{{todo.time}}</span>
+      <button (click)="deleteTodo(todo); $event.stopPropagation()">X</button>
     </div>
+
+    <div *ngIf="selectedTodo">
+      <h2>{{selectedTodo.name}}</h2>
+      <label>Name :</label><input [(ngModel)]="selectedTodo.name" placeholder="name" required />
+      <label>Place :</label><input [(ngModel)]="selectedTodo.place" placeholder="name" required />
+      <label>Time :</label><input [(ngModel)]="selectedTodo.time" placeholder="name" required />
+    </div>
+
+    <div>
+      <h2>Add a todo element</h2>
+      <form #todoForm="ngForm">
+        <div>
+          <label>Name :</label>
+          <input type="text" id="name" required [(ngModel)]="model.name" name="name" />
+        </div>
+        <div>
+          <label>Place :</label>
+          <input type="text" id="Place" required [(ngModel)]="model.place" name="place" />
+        </div>
+        <div>
+          <label>Time :</label>
+          <input type="text" id="time" required [(ngModel)]="model.time" name="time"/>
+        </div>
+
+        <button type="submit" (click)="addTodo(model)">Submit</button>
+
+      </form>
+    </div>
+
 </div>

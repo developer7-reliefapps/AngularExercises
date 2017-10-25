@@ -7,14 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class YoutubePlayerComponent implements OnInit {
 
+/*Variable declarations*/
 private dangerousVideoUrl: string;
-private videoUrl: any;
+private videoUrl: string;
+public videourl: string;
+public playList: string[];
 
+/*Constructor*/
   constructor(
-
-  ) { }
-
-  ngOnInit() {
+  ) {
+    this.playList = [];
   }
 
+/*Implementation of OnInit*/
+  ngOnInit() {
+
+  }
+
+  /*Methods*/
+
+  /**Add to playlist**/
+  addToList(videoUrl: string){
+    if(videoUrl){
+      this.playList.push(videoUrl);
+    }
+  }
 }

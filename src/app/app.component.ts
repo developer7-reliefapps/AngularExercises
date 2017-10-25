@@ -9,7 +9,7 @@ import { Component, SecurityContext } from '@angular/core';
 
 })
 export class AppComponent {
-  title = 'app';
+  public title: string = 'app';
 
 constructor(){  }
 

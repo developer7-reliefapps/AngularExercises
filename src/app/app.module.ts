@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 // routing
 import { appRoutes } from './app.routing';
-import { LocalDataBaseModule } from '@neoprospecta/angular-local-database';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 // components
 import { AppComponent } from './app.component';
@@ -16,6 +16,12 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
 //Pipe
 import { SafePipe } from './youtube-player/safe-pipe';
 
+// From ToH
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
+import { TodoService } from './todo-list/todo.service';
+
 
 
 @NgModule({
@@ -23,17 +29,19 @@ import { SafePipe } from './youtube-player/safe-pipe';
     AppComponent,
     TodoListComponent,
     YoutubePlayerComponent,
-    SafePipe,
-    LocalDataBaseModule,
-    FormsModule
+    SafePipe
   ],
   imports: [
     BrowserModule,
-    HttpClient,
+    HttpClientModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes),
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  providers: [],
+  providers: [
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

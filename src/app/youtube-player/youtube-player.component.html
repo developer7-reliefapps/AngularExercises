@@ -3,4 +3,4 @@
 </h2>
 <label>Video address: </label><input [(ngModel)]="videoUrl" />
 
-<iframe [src]="videoUrl | safe">The video will display here </iframe>
+<iframe [src]="'https://www.youtube.com/embed/' + videoUrl.slice(32) | safe">The video will display here </iframe>
