@@ -27,9 +27,14 @@ public playList: string[];
   /*Methods*/
 
   /**Add to playlist**/
-  addToList(videoUrl: string){
-    if(videoUrl){
-      this.playList.push(videoUrl);
+  addToList(url: string){
+    if(url){
+      this.playList.push(url);
     }
+  }
+
+  /**Transfer playlist element to input**/
+  playlistToInput(link: string){
+    this.videoUrl = link;
   }
 }

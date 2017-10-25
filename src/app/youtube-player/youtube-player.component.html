@@ -1,6 +1,16 @@
 <h2>
   youtube-player works!!!
 </h2>
-<label>Video address: </label><input [(ngModel)]="videoUrl" />
+<label>Video address: </label>
+<input
+#url
+[(ngModel)]="videoUrl" />
+
+<button (click)="addToList(url)">Add</button>
 
 <iframe [src]="'https://www.youtube.com/embed/' + videoUrl.slice(32) | safe">The video will display here </iframe>
+
+<h2>PLAYLIST</h2>
+<div *ngFor = "let pl of playList">
+  <span (click) = playlistToInput(pl.value)>{{ pl.value }}</span>
+</div>
