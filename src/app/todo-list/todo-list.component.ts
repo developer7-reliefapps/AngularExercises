@@ -9,6 +9,7 @@ import { TodoService } from './todo.service';
 @Component({
   selector: 'todo-list',
   templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.css']
 })
 
 export class TodoListComponent implements OnInit{
@@ -37,12 +38,12 @@ this.model = new Todo();
 /**Display details of selected todo element**/
 onSelect(todo: Todo) {
   this.selectedTodo = todo;
-  return this.todoService.selectTodo(todo);
+  return this.todoService.getTodo(todo.id);
 }
 
 /**Add a todo element**/
 addTodo(newTodo: Todo){
-  this.todoService.moreTodo(newTodo);
+  this.todoService.addTodo(newTodo);
   console.log(newTodo);
   console.log(newTodo.name+' '+newTodo.place+' '+newTodo.time);
 }
@@ -54,7 +55,7 @@ deleteTodo(selectedTodo: Todo){
 
 /**Display Test**/
 get diagnostic() {
-  return JSON.stringify(this.model);
+  return JSON.stringify(this.selectedTodo);
 }
 
 

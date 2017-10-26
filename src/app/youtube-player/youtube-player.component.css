@@ -1,0 +1,37 @@
+.message {
+  color: red;
+}
+
+#youtube-player {
+  margin-top:8%;
+  width:50%;
+}
+
+.title-youtube-player {
+  width: 50%;
+}
+
+.playlist {
+  width:100%;
+  padding-left: 60%;
+}
+
+.playlist-line {
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+.playlist-line: hover {
+  color: purple;
+}
+
+.playing-video-youtube {
+  width: 60%;
+  float: left;
+  border: 1px solid black;
+}
+
+.title-youtube-player {
+  padding-top: 0;
+}

@@ -8,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class YoutubePlayerComponent implements OnInit {
 
 /*Variable declarations*/
-private dangerousVideoUrl: string;
 private videoUrl: string;
-public videourl: string;
 public playList: string[];
+public message: string;
 
 /*Constructor*/
   constructor(
   ) {
     this.playList = [];
+    this.videoUrl = '';
   }
 
 /*Implementation of OnInit*/
@@ -27,14 +27,32 @@ public playList: string[];
   /*Methods*/
 
   /**Add to playlist**/
-  addToList(url: string){
-    if(url){
-      this.playList.push(url);
-    }
+  public addToList(): void{
+      if(!this.playList.includes(this.videoUrl)){
+        this.playList.push(this.videoUrl);
+      } else {
+        this.message = "This video address is already in the list !";
+      }
   }
 
   /**Transfer playlist element to input**/
-  playlistToInput(link: string){
+  public playlistToInput(link: string){
     this.videoUrl = link;
+  }
+
+  /**Extract key id from YouTube links, from position 32**/
+  /**and aggregate constant part for integration to HTML**/
+  public slashVideoUrl(videoUrl: string): string{
+    return 'https://www.youtube.com/embed/' + videoUrl.slice(32);
+  }
+
+  /**Clear message when the input box in clicked on**/
+  public clearMessage(): void {
+    this.message = '';
+  }
+
+  /**Clear input box content**/
+  public clearInput(): void {
+    this.videoUrl = ' ';
   }
 }

@@ -1,0 +1,16 @@
+#calculator {
+  position: absolute;
+  margin-top: 10%;
+  width: 25%;
+}
+
+.calculator-button {
+  margin-right: 10%;
+  border: 2px solid black;
+  font-size: 400%;
+}
+
+.calculator-calculation {
+  font-size: 400%;
+  float: right;
+}

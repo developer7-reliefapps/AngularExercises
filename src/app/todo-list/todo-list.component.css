@@ -1,0 +1,36 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table {
+  display: inline-block;
+}
+
+tr: hover{
+  cursor: pointer;
+  font-style: italic;
+}
+
+fieldset {
+  width:20%;
+  float:right;
+}
+
+#todo-list {
+  width: 80%;
+  display: inline-block;
+}
+
+tr:nth-child(even){
+  background-color: green;
+}
+
+tr:nth-child(even){
+  background-color: lightgreen;
+}
+
+th {
+  background-color: yellow;
+}

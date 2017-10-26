@@ -1,0 +1,17 @@
+<div class="calculator-calculation">
+  <div>
+    Calculation : {{ buttonValue }}
+  </div>
+  <div>
+    Result : {{ resultValue }}
+  </div>
+</div>
+
+<div id="calculator">
+  <button
+   class="calculator-button"
+   (click)="displayValue(symbol)"
+   *ngFor="let symbol of symbols">
+    {{ symbol }}
+  </button>
+</div>
