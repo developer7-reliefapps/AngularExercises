@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { digits } from './digits';
+import { symbols } from './symbols';
+
 @Component({
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css']
@@ -7,53 +10,87 @@ import { Component } from '@angular/core';
 
 export class CalculatorComponent{
   /*Variables declaration*/
-  public symbols: string[];
   public buttonValue: string;
   public resultValue: number;
+  public digit: number;
+  public symbol: symbol;
+  public digits: number[];
+  public symbols: string[];
 
   /*Constructor*/
   constructor () {
-    this.symbols = ['0','1','2','3','4','5','6','7','8','9','.','=','+','-','*','/'];
-    this.buttonValue = ' ';
+    this.buttonValue = '';
     this.resultValue = 0;
+    /*Retrieve list of digits*/
+    this.digits = digits;
+    /*Retrieve list of symbols*/
+    this.symbols = symbols;
   }
 
   /*Methods*/
 
   /**Display the value of clicked buttons**/
-  public displayValue(buttonValue: string):void {
+  public displayValue(currentValue: string): void {
+    console.log("-----------TEST------------")
+    console.log("1/ Key entered : " + currentValue);
 
-    /*Checking results on the console*/
-    console.log("--------------- Checkings ---------------------");
-    console.log("value before :" + this.buttonValue.slice(0, this.buttonValue.length - 1));
-    console.log("char : " + this.buttonValue.charAt(this.buttonValue.length-1));
-    console.log("Value after : "+ buttonValue);
-    console.log("Result :");
-    console.log(parseFloat(this.buttonValue.slice(0, this.buttonValue.length - 1))
-                  + parseFloat(buttonValue));
+     if(currentValue !== "="){
+       this.buttonValue += currentValue;
+         } else {
+           switch(
+             this.buttonValue.charAt(this.buttonValue.indexOf("+")) ||
+             this.buttonValue.charAt(this.buttonValue.indexOf("*")) ||
+             this.buttonValue.charAt(this.buttonValue.indexOf("-")) ||
+             this.buttonValue.charAt(this.buttonValue.indexOf("/"))
+           ) {
 
-    switch(this.buttonValue.charAt(this.buttonValue.length - 1)){
+             case '+':
+             console.log("2/ addition");
+             this.resultValue =
+             parseFloat(this.buttonValue.substring(0, this.buttonValue.indexOf("+"))) +
+             parseFloat(this.buttonValue.substring(this.buttonValue.indexOf("+") + 1, this.buttonValue.length));
+             console.log(parseFloat(this.buttonValue.substring(this.buttonValue.indexOf("+") + 1, this.buttonValue.length)));
+             break;
 
-      case '+':
-      this.resultValue = parseFloat(this.buttonValue.slice(0, this.buttonValue.length - 1))
-                          + parseFloat(buttonValue);
+             case '-':
+             this.resultValue =
+             parseFloat(this.buttonValue.substring(0, this.buttonValue.indexOf("-"))) -
+             parseFloat(this.buttonValue.substring(this.buttonValue.indexOf("-") + 1, this.buttonValue.length));
+             break;
 
-      case '-':
-      this.resultValue = parseFloat(this.buttonValue.slice(0, this.buttonValue.length - 1))
-                          - parseFloat(buttonValue);
+             case '*':
+             this.resultValue =
+             parseFloat(this.buttonValue.substring(0, this.buttonValue.indexOf("*"))) *
+             parseFloat(this.buttonValue.substring(this.buttonValue.indexOf("*") + 1, this.buttonValue.length));
+             break;
 
-      case '*':
-      this.resultValue = parseFloat(this.buttonValue.slice(0, this.buttonValue.length - 1))
-                          * parseFloat(buttonValue);
+             case '/':
+             this.resultValue =
+             parseFloat(this.buttonValue.substring(0, this.buttonValue.indexOf("/"))) /
+             parseFloat(this.buttonValue.substring(this.buttonValue.indexOf("/") + 1, this.buttonValue.length));
+             break;
 
-      case '/':
-      this.resultValue = parseFloat(this.buttonValue.slice(0, this.buttonValue.length - 1))
-                          / parseFloat(buttonValue);
+             default:
+               this.resultValue = parseFloat(this.buttonValue);
+         }
+         if(this.resultValue.toString() === "NaN"){
+           console.log(this.resultValue);
+           this.resultValue = parseFloat(this.buttonValue);
+           console.log(this.resultValue);
+           this.buttonValue = this.resultValue.toString();
+         } else {
+           this.buttonValue = this.resultValue.toString();
+         }
+     }
+    console.log("3/ Result :");
+    console.log(this.resultValue);
 
-      default:
-      this.resultValue = parseFloat(this.buttonValue += buttonValue);
-    }
-
-    /*return this.resultValue;*/
   }
+
+  resetCalculator(){
+    this.buttonValue = '';
+    this.resultValue = 0;
+  }
+
+
 }
