@@ -1,66 +1,10 @@
-{{ diagnostic }}
 <!--Table of todolist-->
 <div id="todo-list">
-    <table>
-        <tr>
-          <th>
-            Id
-          </th>
-          <th>
-            Name
-          </th>
-          <th>
-            Place
-          </th>
-          <th>
-            Time
-          </th>
-        </tr>
-      <tr *ngFor="let todo of todolist" (click)="onSelect(todo)">
-        <td>{{todo.id}}</td>
-        <td>{{todo.name}}</td>
-        <td>{{todo.place}}</td>
-        <td>{{todo.time}}</td>
-        <td>
-          <button (click)="deleteTodo(todo); $event.stopPropagation()">X</button>
-        </td>
-      </tr>
-    </table>
+    <list-todos #listTodo></list-todos>
 <!--Form to add a todo-->
-    <fieldset>
-      <legend>
-        Add a todo element
-      </legend>
-      <div>
-        <form #todoForm="ngForm">
-          <div>
-            <label>Name :</label>
-            <input type="text" id="name" required [(ngModel)]="model.name" name="name" />
-          </div>
-          <div>
-            <label>Place :</label>
-            <input type="text" id="Place" required [(ngModel)]="model.place" name="place" />
-          </div>
-          <div>
-            <label>Time :</label>
-            <input type="text" id="time" required [(ngModel)]="model.time" name="time"/>
-          </div>
-
-          <button type="submit" (click)="addTodo(model)">Submit</button>
-
-        </form>
-      </div>
-    </fieldset>
+    <add-todo></add-todo>
 <!--Form to display a selected todo and modify it-->
-    <div *ngIf="selectedTodo">
-      <fieldset>
-        <legend>
-          Selection : {{selectedTodo.name}}
-        </legend>
-        <label>Name :</label><input [(ngModel)]="selectedTodo.name" placeholder="name" required />
-        <label>Place :</label><input [(ngModel)]="selectedTodo.place" placeholder="name" required />
-        <label>Time :</label><input [(ngModel)]="selectedTodo.time" placeholder="name" required />
-      </fieldset>
-    </div>
+
+    <select-todo [selectedTodo]="listTodo.selectedTodo"></select-todo>
 
 </div>

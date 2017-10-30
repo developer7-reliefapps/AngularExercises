@@ -1,26 +1,2 @@
-<div class="calculator-calculation">
-  <div>
-    Calculation : {{ buttonValue }}
-  </div>
-  <div>
-    Result : {{ resultValue }}
-  </div>
-</div>
-
-<button (click)="resetCalculator()" style="color:red; font-size: 18px">RESET VALUES</button>
-
-<div id="calculator">
-  <button
-   class="calculator-button"
-   (click)="displayValue(symbol)"
-   *ngFor="let symbol of symbols">
-    {{ symbol }}
-  </button>
-
-  <button
-   class="calculator-button"
-   (click)="displayValue(digit)"
-   *ngFor="let digit of digits">
-    {{ digit }}
-  </button>
-</div>
+<result [resultValue]="keys.resultValue" [buttonValue]="keys.buttonValue"></result>
+<keyboard #keys></keyboard>

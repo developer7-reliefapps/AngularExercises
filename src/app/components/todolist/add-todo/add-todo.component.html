@@ -1,0 +1,24 @@
+<fieldset>
+  <legend>
+    Add a todo element
+  </legend>
+  <div>
+    <form #todoForm="ngForm">
+      <div>
+        <label>Name :</label>
+        <input type="text" id="name" required [(ngModel)]="model.name" name="name" />
+      </div>
+      <div>
+        <label>Place :</label>
+        <input type="text" id="Place" required [(ngModel)]="model.place" name="place" />
+      </div>
+      <div>
+        <label>Time :</label>
+        <input type="text" id="time" required [(ngModel)]="model.time" name="time"/>
+      </div>
+
+      <button type="submit" (click)="addTodo(model)">Submit</button>
+
+    </form>
+  </div>
+</fieldset>

@@ -1,0 +1,8 @@
+  <fieldset *ngIf="selectedTodo">
+    <legend>
+      Selection : {{selectedTodo.name}}
+    </legend>
+    <label>Name :</label><input [(ngModel)]="selectedTodo.name" placeholder="name" required />
+    <label>Place :</label><input [(ngModel)]="selectedTodo.place" placeholder="name" required />
+    <label>Time :</label><input [(ngModel)]="selectedTodo.time" placeholder="name" required />
+  </fieldset>

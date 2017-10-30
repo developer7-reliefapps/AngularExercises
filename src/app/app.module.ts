@@ -14,6 +14,18 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 
+// Sub-components
+import { SearchBarComponent } from './components/player/search-bar.component';
+import { PlaylistComponent } from './components/player/playlist.component';
+import { ViewAreaComponent } from './components/player/view-area.component';
+
+import { AddTodoCommponent } from './components/todolist/add-todo/add-todo.component';
+import { ListTodosComponent } from './components/todolist/list-todos/list-todos.component';
+import { SelectTodoComponent } from './components/todolist/select-todo/select-todo.component';
+
+import { KeyboardComponent } from './components/calculator/keyboard/keyboard.component';
+import { ResultComponent } from './components/calculator/result/result.component';
+
 //Pipe
 import { SafePipe } from './youtube-player/safe-pipe';
 
@@ -31,6 +43,14 @@ import { TodoService } from './todo-list/todo.service';
     CalculatorComponent,
     TodoListComponent,
     YoutubePlayerComponent,
+    SearchBarComponent,
+    PlaylistComponent,
+    ViewAreaComponent,
+    AddTodoCommponent,
+    ListTodosComponent,
+    SelectTodoComponent,
+    KeyboardComponent,
+    ResultComponent,
     SafePipe
   ],
   imports: [

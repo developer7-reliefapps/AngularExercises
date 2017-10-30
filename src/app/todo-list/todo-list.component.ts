@@ -33,26 +33,6 @@ ngOnInit () {
 this.model = new Todo();
 }
 
-/*Methods*/
-
-/**Display details of selected todo element**/
-onSelect(todo: Todo) {
-  this.selectedTodo = todo;
-  return this.todoService.getTodo(todo.id);
-}
-
-/**Add a todo element**/
-addTodo(newTodo: Todo){
-  this.todoService.addTodo(newTodo);
-  console.log(newTodo);
-  console.log(newTodo.name+' '+newTodo.place+' '+newTodo.time);
-}
-
-/**Delete a todo element from the list**/
-deleteTodo(selectedTodo: Todo){
-  this.todoService.removeTodo(selectedTodo);
-}
-
 /**Display Test**/
 get diagnostic() {
   return JSON.stringify(this.selectedTodo);

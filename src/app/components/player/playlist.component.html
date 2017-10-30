@@ -1,0 +1,8 @@
+<h2>PLAYLIST</h2>
+<button (click)="addToList()">Add</button>
+<div class="message">
+  {{ message }}
+</div>
+<div *ngFor = "let pl of playList">
+  <span class="playlist-line" (click) = playlistToInput(pl)>{{ pl }}</span>
+</div>

@@ -1,28 +1,17 @@
 <div id="youtube-player">
   <div class="playing-video-youtube">
+
     <h2 class="title-youtube-player">
       youtube-player works!!!
     </h2>
-    <div>
-      <label>Video address: </label>
-      <input [(ngModel)]="videoUrl" (click)="clearMessage()" />
 
-      <button (click)="addToList()">Add</button>
-      <button (click)="clearInput(); clearMessage()">Clear</button>
-      <div class="message">{{ message }}</div>
-    </div>
+    <search-bar #searchBar [linkFromList]="playlist.linkFromList"></search-bar>
 
-    <iframe [src]="slashVideoUrl(videoUrl) | safe">The video will display here </iframe>
-
+    <view-area [videoUrl]="searchBar.videoUrl"></view-area>
+    <button (click)="showLocalVar(searchBar)">Afficher le contenu de ma variable locale</button>
   </div>
 
-    <div class="playlist">
-      <h2>PLAYLIST</h2>
-      <div *ngFor = "let pl of playList">
-        <span class="playlist-line" (click) = playlistToInput(pl)>{{ pl }}</span>
-      </div>
-    </div>
-
-
-
+  <div class="playlist">
+    <playlist #playlist [videoUrl]="searchBar.videoUrl"></playlist>
+  </div>
 </div>
