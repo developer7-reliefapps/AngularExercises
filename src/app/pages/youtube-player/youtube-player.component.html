@@ -1,0 +1,18 @@
+<div id="youtube-player">
+  <div class="playing-video-youtube">
+
+    <h2 class="title-youtube-player">
+      youtube-player works!!!
+    </h2>
+
+    <search-bar #searchBar></search-bar>
+
+    <view-area [youtubeVideo]="searchBar.youtubeVideo"></view-area>
+    <button (click)="showLocalVar(searchBar)">Afficher le contenu de ma variable locale SearchBar</button>
+    <button (click)="showLocalVar(playList)">Afficher le contenu de ma variable locale playList</button>
+  </div>
+
+  <div class="playlist">
+    <playlist #playList [youtubeVideo]="searchBar.youtubeVideo"></playlist>
+  </div>
+</div>

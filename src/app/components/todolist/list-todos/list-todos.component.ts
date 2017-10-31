@@ -1,35 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Todo } from '../../../todo-list/todo';
-import { TODO } from '../../../todo-list/mock-todolist';
+import { Todo } from '../../../pages/todo-list/todo';
 
-import { TodoService } from '../../../todo-list/todo.service';
+import { TodoService } from '../../../pages/todo-list/todo.service';
 
 @Component ({
   selector: 'list-todos',
   templateUrl: './list-todos.component.html',
-  styleUrls: ['../../../todo-list/todo-list.component.css']
+  styleUrls: ['../../../pages/todo-list/todo-list.component.css']
 })
 
 export class ListTodosComponent {
 
   /*Variables declaration*/
-  public todo: Todo;
-  public todolist: Todo[];
   public selectedTodo: Todo;
-  public newTodo: Todo;
-  model: Todo;
+  public todoList: Todo[];
+  public isVisible: boolean;
 
   /*Constructor*/
-  constructor (
-    private todoService: TodoService
-  ) {
-    this.todolist = this.todoService.getTodos();
-  }
-
-  /*OnInit implementation*/
-  ngOnInit () {
-  this.model = new Todo();
+  constructor (private todoService: TodoService) {
+    this.todoList= this.todoService.getTodos();
+    //this.isVisible = true;
   }
 
   /*Methods*/
@@ -38,6 +29,8 @@ export class ListTodosComponent {
   onSelect(todo: Todo) {
     this.selectedTodo = todo;
     console.log(todo);
+    this.isVisible = !this.isVisible;
+    console.log("listTodo Visiblity",this.isVisible);
     return this.todoService.getTodo(todo.id);
   }
 

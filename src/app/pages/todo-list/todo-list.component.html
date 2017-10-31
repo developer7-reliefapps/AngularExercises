@@ -1,0 +1,11 @@
+<!--Table of todolist-->
+<div id="todo-list">
+    <list-todos #listTodo></list-todos>
+
+    <div id="forms">
+      <!--Form to add a todo-->
+          <add-todo *ngIf="!selectTodo.selectedTodo"></add-todo>
+      <!--Form to display a selected todo and modify it-->
+          <select-todo #selectTodo [selectedTodo]="listTodo.selectedTodo" ></select-todo>
+    </div>
+</div>

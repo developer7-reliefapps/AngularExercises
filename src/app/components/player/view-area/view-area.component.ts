@@ -1,14 +1,17 @@
 import { Component, Input } from '@angular/core';
 
+import { YoutubeVideo } from '../../../pages/youtube-player/YoutubeVideo';
+
 @Component({
     selector: 'view-area',
     templateUrl: 'view-area.component.html',
-    styleUrls: ['../../youtube-player/youtube-player.component.css']
+    styleUrls: ['../../../pages/youtube-player/youtube-player.component.css']
 })
 
 export class ViewAreaComponent {
 
-  @Input() videoUrl: string;
+  @Input() youtubeVideo: YoutubeVideo;
+  /**Counters to distinguish the calls of the slashVideo method**/
   public count: number;
 
     constructor(
@@ -22,8 +25,6 @@ export class ViewAreaComponent {
     /**and aggregate constant part for integration to HTML**/
     public slashVideoUrl(videoUrl: string): string{
       this.count ++;
-      console.log(this.count + ' VIDEO ADDRESS : https://www.youtube.com/embed/' + videoUrl.slice(32, videoUrl.length));
-      console.log('PART EXTRACTED : '+ videoUrl.slice(32, videoUrl.length));
       return 'https://www.youtube.com/embed/' + videoUrl.slice(32, videoUrl.length);
     }
 

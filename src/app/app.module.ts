@@ -10,14 +10,14 @@ import { HttpModule } from '@angular/http';
 
 // components
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
-import { CalculatorComponent } from './calculator/calculator.component';
+import { TodoListComponent } from './pages/todo-list/todo-list.component';
+import { YoutubePlayerComponent } from './pages/youtube-player/youtube-player.component';
+import { CalculatorComponent } from './pages/calculator/calculator.component';
 
 // Sub-components
-import { SearchBarComponent } from './components/player/search-bar.component';
-import { PlaylistComponent } from './components/player/playlist.component';
-import { ViewAreaComponent } from './components/player/view-area.component';
+import { SearchBarComponent } from './components/player/search-bar/search-bar.component';
+import { PlaylistComponent } from './components/player/playlist/playlist.component';
+import { ViewAreaComponent } from './components/player/view-area/view-area.component';
 
 import { AddTodoCommponent } from './components/todolist/add-todo/add-todo.component';
 import { ListTodosComponent } from './components/todolist/list-todos/list-todos.component';
@@ -27,13 +27,17 @@ import { KeyboardComponent } from './components/calculator/keyboard/keyboard.com
 import { ResultComponent } from './components/calculator/result/result.component';
 
 //Pipe
-import { SafePipe } from './youtube-player/safe-pipe';
+import { SafePipe } from './pages/youtube-player/safe-pipe';
 
 // From ToH
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
-import { TodoService } from './todo-list/todo.service';
+// Service
+import { TodoService } from './pages/todo-list/todo.service';
+
+// Directive
+import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
 
 
 
@@ -51,7 +55,8 @@ import { TodoService } from './todo-list/todo.service';
     SelectTodoComponent,
     KeyboardComponent,
     ResultComponent,
-    SafePipe
+    SafePipe,
+    DisplayFormDirective
   ],
   imports: [
     BrowserModule,

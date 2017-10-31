@@ -1,35 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Todo } from '../../../todo-list/todo';
-import { TODO } from '../../../todo-list/mock-todolist';
+import { Todo } from '../../../pages/todo-list/todo';
 
-import { TodoService } from '../../../todo-list/todo.service';
+import { TodoService } from '../../../pages/todo-list/todo.service';
 
 @Component ({
   selector: 'add-todo',
   templateUrl: './add-todo.component.html',
-  styleUrls: ['../../../todo-list/todo-list.component.css']
+  styleUrls: ['../../../pages/todo-list/todo-list.component.css']
 })
 
 export class AddTodoCommponent {
 
   /*Variables declaration*/
-  private todo: Todo;
-  private todolist: Todo[];
-  private selectedTodo: Todo;
-  private newTodo: Todo;
-  model: Todo;
+  public model: Todo;
+  @Input() selectedTodo: Todo;
 
   /*Constructor*/
-  constructor (
-    private todoService: TodoService
-  ) {
-    this.todolist = this.todoService.getTodos();
-  }
+  constructor (private todoService: TodoService) {}
 
   /*OnInit implementation*/
   ngOnInit () {
-  this.model = new Todo();
+    this.model = new Todo();
   }
 
   /*Methods*/

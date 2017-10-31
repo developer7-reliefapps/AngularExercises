@@ -1,25 +1,26 @@
 import { Component, Input } from '@angular/core';
 
-import { Todo } from '../../../todo-list/todo';
-import { TODO } from '../../../todo-list/mock-todolist';
-
-import { TodoService } from '../../../todo-list/todo.service';
+import { Todo } from '../../../pages/todo-list/todo';
 
 @Component ({
   selector: 'select-todo',
   templateUrl : './select-todo.component.html',
-  styleUrls:['../../../todo-list/todo-list.component.css']
+  styleUrls:['../../../pages/todo-list/todo-list.component.css']
 })
 
 export class SelectTodoComponent {
 
   /*Variables declaration*/
   @Input() selectedTodo: Todo;
+  @Input() isVisible: boolean;
 
   /*Constructor*/
-  constructor (
-    private todoService: TodoService
-  ) {
+  constructor () {
+  }
+
+  public close(): void {
+    this.selectedTodo = null;
+    console.log("selectTodo Visiblity",this.isVisible);
   }
 
 }
