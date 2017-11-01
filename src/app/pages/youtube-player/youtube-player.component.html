@@ -8,8 +8,11 @@
     <search-bar #searchBar></search-bar>
 
     <view-area [youtubeVideo]="searchBar.youtubeVideo"></view-area>
-    <button (click)="showLocalVar(searchBar)">Afficher le contenu de ma variable locale SearchBar</button>
-    <button (click)="showLocalVar(playList)">Afficher le contenu de ma variable locale playList</button>
+    <div>
+      <button (click)="showLocalVar(searchBar)">Afficher le contenu de ma variable locale SearchBar</button>
+      <button (click)="showLocalVar(playList)">Afficher le contenu de ma variable locale playList</button>
+    </div>
+
   </div>
 
   <div class="playlist">

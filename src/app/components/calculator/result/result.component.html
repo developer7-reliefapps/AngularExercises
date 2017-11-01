@@ -1,9 +1,9 @@
 <div class="calculator-calculation">
- <div>
-    Calculation : {{ calculatorData.buttonValue }}
-  </div>
-  <div>
-    Result : {{ calculatorData.resultValue }}
-</div>
+
+    {{ calculatorData.buttonValue ? calculatorData.buttonValue : "let's type..." }}
+
+  <!-- <div>
+    Result :  {{ calculatorData.resultValue }}
+  </div> -->
 
 </div>

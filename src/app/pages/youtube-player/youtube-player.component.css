@@ -4,7 +4,7 @@
 
 #youtube-player {
   margin-top:8%;
-  width:50%;
+  width:80%;
 }
 
 .title-youtube-player {
@@ -12,8 +12,13 @@
 }
 
 .playlist {
-  width:100%;
-  padding-left: 60%;
+  /*margin-top: 10%;*/
+  width: 36%;
+  padding-left: 5%;
+  border: 1px solid black;
+  display: inline-block;
+  position: relative;
+  float: right;
 }
 
 .playlist-line {
@@ -27,7 +32,8 @@
 }
 
 .playing-video-youtube {
-  width: 60%;
+  padding: 1%;
+  width: 55%;
   float: left;
   border: 1px solid black;
 }

@@ -1,17 +1,18 @@
-<button (click)="resetCalculator()" style="color:red; font-size: 18px">RESET VALUES</button>
-
 <div id="calculator">
-  <button
-   class="calculator-button"
-   (click)="displayValue(symbol)"
-   *ngFor="let symbol of symbols">
-    {{ symbol }}
-  </button>
+<button (click)="resetCalculator()" class="reset-button">RESET VALUES</button>
 
-  <button
-   class="calculator-button"
-   (click)="displayValue(digit)"
-   *ngFor="let digit of digits">
+  <div *ngFor="let symbol of symbols" class="calculator-button">
+    <button class="symbol-buttons "
+     (click)="displayValue(symbol)">
+      {{ symbol }}
+    </button>
+  </div>
+
+<div *ngFor="let digit of digits" class="calculator-button">
+  <button class="digit-buttons"
+   (click)="displayValue(digit)">
     {{ digit }}
   </button>
+</div>
+
 </div>
