@@ -15,12 +15,12 @@ export class ListTodosComponent {
   /*Variables declaration*/
   public selectedTodo: Todo;
   public todoList: Todo[];
-  public isVisible: boolean;
+  public isDisplayed: boolean;
+  @Input() isVisible: boolean;
 
   /*Constructor*/
   constructor (private todoService: TodoService) {
     this.todoList= this.todoService.getTodos();
-    //this.isVisible = true;
   }
 
   /*Methods*/
@@ -29,8 +29,6 @@ export class ListTodosComponent {
   onSelect(todo: Todo) {
     this.selectedTodo = todo;
     console.log(todo);
-    this.isVisible = !this.isVisible;
-    console.log("listTodo Visiblity",this.isVisible);
     return this.todoService.getTodo(todo.id);
   }
 

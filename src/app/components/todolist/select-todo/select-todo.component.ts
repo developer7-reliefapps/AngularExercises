@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Todo } from '../../../pages/todo-list/todo';
+
+import { TodoListComponent } from '../../../pages/todo-list/todo-list.component';
 
 @Component ({
   selector: 'select-todo',
@@ -8,19 +10,32 @@ import { Todo } from '../../../pages/todo-list/todo';
   styleUrls:['../../../pages/todo-list/todo-list.component.css']
 })
 
-export class SelectTodoComponent {
+export class SelectTodoComponent implements OnInit {
 
   /*Variables declaration*/
   @Input() selectedTodo: Todo;
   @Input() isVisible: boolean;
 
   /*Constructor*/
-  constructor () {
+  constructor (private todoListComponent: TodoListComponent) {
+
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.todoListComponent.selectedTodo = this.selectedTodo;
+    },5000)
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.todoListComponent.selectedTodo = this.selectedTodo;
+    },5000)
   }
 
   public close(): void {
     this.selectedTodo = null;
-    console.log("selectTodo Visiblity",this.isVisible);
+    this.isVisible = true;
   }
 
 }

@@ -10,6 +10,9 @@ import { Todo } from './todo';
 
 export class TodoListComponent {
 
+  public selectedTodo; Todo;
+
+
   /*Constructor*/
   constructor() {}
 }
