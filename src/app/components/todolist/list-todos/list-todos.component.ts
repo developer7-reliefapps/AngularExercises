@@ -4,6 +4,8 @@ import { Todo } from '../../../pages/todo-list/todo';
 
 import { TodoService } from '../../../pages/todo-list/todo.service';
 
+import { DisplayAddForm } from '../../../pages/todo-list/DisplayAddForm';
+
 @Component ({
   selector: 'list-todos',
   templateUrl: './list-todos.component.html',
@@ -16,11 +18,12 @@ export class ListTodosComponent {
   public selectedTodo: Todo;
   public todoList: Todo[];
   public isDisplayed: boolean;
-  @Input() isVisible: boolean;
+  public displayAddForm: DisplayAddForm;
 
   /*Constructor*/
   constructor (private todoService: TodoService) {
     this.todoList= this.todoService.getTodos();
+    this.displayAddForm = { isVisible: true };
   }
 
   /*Methods*/
@@ -28,6 +31,7 @@ export class ListTodosComponent {
   /**Display details of selected todo element**/
   onSelect(todo: Todo) {
     this.selectedTodo = todo;
+    this.displayAddForm.isVisible = false;
     console.log(todo);
     return this.todoService.getTodo(todo.id);
   }

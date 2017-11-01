@@ -1,11 +1,15 @@
 <!--Table of todolist-->
 <div id="todo-list">
-    <list-todos #listTodo [isVisible] = "isVisible"></list-todos>
+    <list-todos #listTodo></list-todos>
 
     <div id="forms">
       <!--Form to add a todo-->
-          <add-todo *ngIf="!selectTodo.selectedTodo"></add-todo>
+          <add-todo *ngIf="listTodo.displayAddForm.isVisible"></add-todo>
       <!--Form to display a selected todo and modify it-->
-          <select-todo #selectTodo [selectedTodo]="listTodo.selectedTodo" ></select-todo>
+          <select-todo
+           #selectTodo
+           [selectedTodo]="listTodo.selectedTodo"
+           [displayAddForm]="listTodo.displayAddForm">
+         </select-todo>
     </div>
 </div>

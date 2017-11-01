@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Todo } from '../../../pages/todo-list/todo';
 
 import { TodoListComponent } from '../../../pages/todo-list/todo-list.component';
+
+import { DisplayAddForm } from '../../../pages/todo-list/DisplayAddForm';
 
 @Component ({
   selector: 'select-todo',
@@ -10,32 +12,18 @@ import { TodoListComponent } from '../../../pages/todo-list/todo-list.component'
   styleUrls:['../../../pages/todo-list/todo-list.component.css']
 })
 
-export class SelectTodoComponent implements OnInit {
+export class SelectTodoComponent {
 
   /*Variables declaration*/
   @Input() selectedTodo: Todo;
-  @Input() isVisible: boolean;
+  @Input() displayAddForm: DisplayAddForm;
 
   /*Constructor*/
-  constructor (private todoListComponent: TodoListComponent) {
-
-  }
-
-  ngOnInit() {
-    setTimeout(() => {
-      this.todoListComponent.selectedTodo = this.selectedTodo;
-    },5000)
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.todoListComponent.selectedTodo = this.selectedTodo;
-    },5000)
-  }
+  constructor (private todoListComponent: TodoListComponent) {}
 
   public close(): void {
     this.selectedTodo = null;
-    this.isVisible = true;
+    this.displayAddForm.isVisible = true;
   }
 
 }
