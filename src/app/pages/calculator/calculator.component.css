@@ -14,36 +14,63 @@
 
 .symbol-buttons {
   float: left;
-  background-color: #E3F2FD;
-  color: #616161;
+  background-color: #42A5F5;
+  color: white;
   /*padding: 0 3%;*/
   font-size: 50px;
   width: 40%;
   display: inline-block;
+  border-radius: 150px;
 }
 
 .digit-buttons {
-  background-color: #EDE7F6;
-  color: #616161;
+  background-color: #26C6DA;
+  color: white;
   float: left;
   /*padding: 0 6%;*/
-
   font-size: 50px;
   width: 40%;
+  border-radius: 150px;
+}
+
+.symbol-buttons:hover {
+  background-color: red;
+}
+
+.digit-buttons:hover {
+  background-color: red;
 }
 
 .calculator-calculation {
   width: 20%;
   overflow: visible;
-  font-size: 400%;
-  background-color: #FCE4EC;
+  font-size: 50px;
+  background-color: #3F51B5;
   display: inline-block;
   margin-left: 1%;
   text-align: right;
+  border-radius: 90px;
+  color: white;
+  padding: 0 1%;
+}
+
+.calculator-calculation:hover {
+  font-style: italic;
+  text-align: left;
 }
 
 .reset-button {
   color:red;
-  font-size: 18px;
-  margin-left: 45%;
+  margin-left: 15%;
+  height: 50px;
+  width: 300px;
+  background-color: #1A237E;
+  border-radius: 150px;
+  font-size: 20px;
+  letter-spacing: 8px;
+}
+
+.reset-button:hover{
+  color: #1A237E;
+  background-color: red;
 }
