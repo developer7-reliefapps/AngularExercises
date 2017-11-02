@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { appRoutes } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NoopInterceptor } from './pages/Services/Caching/noop-interceptor';
 
 // components
 import { AppComponent } from './app.component';
@@ -67,7 +69,12 @@ import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
-    TodoService
+    TodoService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NoopInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
