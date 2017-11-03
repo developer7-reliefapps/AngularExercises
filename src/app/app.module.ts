@@ -28,6 +28,8 @@ import { SelectTodoComponent } from './components/todolist/select-todo/select-to
 import { KeyboardComponent } from './components/calculator/keyboard/keyboard.component';
 import { ResultComponent } from './components/calculator/result/result.component';
 
+import { CachingInterceptor } from './pages/Services/Caching/caching-interceptor';
+import { CacheComponent } from './components/cache/cache.component';
 //Pipe
 import { SafePipe } from './pages/youtube-player/safe-pipe';
 
@@ -57,8 +59,10 @@ import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
     SelectTodoComponent,
     KeyboardComponent,
     ResultComponent,
+    CachingInterceptor,
     SafePipe,
-    DisplayFormDirective
+    DisplayFormDirective,
+    CacheComponent
   ],
   imports: [
     BrowserModule,

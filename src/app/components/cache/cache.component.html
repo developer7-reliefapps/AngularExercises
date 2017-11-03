@@ -1,0 +1,58 @@
+<div id="cache-component">
+
+  <div>
+    <fieldset>
+      <legend>
+        Retrieve an element by key name :
+      </legend>
+      <input [(ngModel)] = "key" />
+      <div>
+        {{ getFromLocalStorage(key) ? getFromLocalStorage(key) : "No element found" }}
+      </div>
+    </fieldset>
+  </div>
+
+  <div>
+    <fieldset>
+      <legend>
+        Set an element with key and object
+      </legend>
+      <form #localStorageForm="ngForm">
+        <label>Write a key : </label><input type="text" id="key" required name="key" [(ngModel)] = key />
+        <label>Write a property name : </label><input type="text" id="property" required name="property" [(ngModel)] = property />
+        <label>Write a value for this property : </label><input type="text" id="value" required name="value" [(ngModel)] = value />
+        <button type="submit" (click)="setInLocalStorage(key, property, value)">OK</button>
+        <p>
+          {{ localObject.property }}, {{ localObject.value }} 
+        </p>
+      </form>
+    </fieldset>
+
+  </div>
+
+  <div>
+    <fieldset>
+      <legend>
+        Remove an item
+      </legend>
+      <form #localStorageRemove="ngForm">
+        <label>Write the key of the element to remove : </label>
+        <input type="text" id="keyRemove" required name="keyRemove" [(ngModel)] = keyRemove />
+        <div>
+          Reminder: {{ getFromLocalStorage(keyRemove) ? getFromLocalStorage(keyRemove) : "No element found" }}
+        </div>
+        <button type="submit" (click) = "removeFromLocalStorage(keyRemove)">OK</button>
+      </form>
+    </fieldset>
+  </div>
+
+  <div>
+    <fieldset>
+      <legend>
+        Remove All
+      </legend>
+      <button (click) = "clearLocalStorage()">TABULA RASA</button>
+    </fieldset>
+  </div>
+
+</div>
