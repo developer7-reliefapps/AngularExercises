@@ -1,4 +1,5 @@
 <div id="cache-component">
+<h1>LOCAL STORAGE METHODS</h1>
 
   <div>
     <fieldset>
@@ -23,7 +24,7 @@
         <label>Write a value for this property : </label><input type="text" id="value" required name="value" [(ngModel)] = value />
         <button type="submit" (click)="setInLocalStorage(key, property, value)">OK</button>
         <p>
-          {{ localObject.property }}, {{ localObject.value }} 
+          {{ localObject.property }}, {{ localObject.value }}
         </p>
       </form>
     </fieldset>

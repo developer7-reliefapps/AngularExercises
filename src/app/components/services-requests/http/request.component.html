@@ -1,11 +1,69 @@
 <div>
-  <p>
-    API GET ALL Method result
-  </p>
+  <h1>
+    API methods
+  </h1>
   <hr />
-  <!-- <div *ngFor="let result of listResult"> -->
-    <hr />
-    {{ listResult }}
-    <hr />
-  <!-- </div> -->
+
+<h2>GET ALL OR DELETE methods</h2>
+
+    <table>
+        <tr>
+          <td>
+            Title (ID)
+          </td>
+          <td>
+            Description
+          </td>
+        </tr>
+
+        <tr *ngFor="let result of listResult" (click)="selectNews(result)">
+          <td>
+            {{ result.title }} ({{ result.id }})
+          </td>
+          <td>
+            {{ result.description ? result.description : "No description" }}
+          </td>
+
+        </tr>
+
+    </table>
+
+    <h2>GET ONE OR PUT methods</h2>
+    <fieldset *ngIf="selectedNews">
+      <form #newsForm="ngForm">
+        <button (click)="unselectNews()">CLOSE</button>
+        <button type="submit" (click)="updateNews(selectedNews)">UPDATE</button>
+        <button type="submit" (click)="addNews(selectedNews)">ADD</button>
+        <h3>
+            <input type="text" id="title" name="title" [(ngModel)]="selectedNews.title" /> (<input type="text" id="id" name="id" [(ngModel)]="selectedNews.id" readonly/>)
+        </h3>
+        <div>
+          <input type="text" id="description" name="description" [(ngModel)]="selectedNews.description"/>
+        </div>
+        <div>
+          <img src={{selectedNews.image_url}} />
+          <div>
+            <!-- <input type="file" id="image_url" name="image_url" [(ngModel)]="selectedNews.image_url"/> -->
+          </div>
+        </div>
+        <div>
+          <input type="text" id="content" name="content" [(ngModel)]="selectedNews.content" />
+        </div>
+      </form>
+    </fieldset>
+
+    <!-- <h2>POST method</h2>
+    <fieldset *ngIf="!selectedNews">
+      <form #addNewsForm="ngForm">
+        <label>Title: </label>
+        <input type="text" id="titleAdd" name="titleAdd"
+        <label>Description:</label>
+        <label>Image: </label>
+        <label>Content: </label>
+      </form>
+    </fieldset> -->
+
+
+
+
 </div>

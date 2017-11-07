@@ -5,13 +5,17 @@
 ul li{
   float: left;
   list-style-type: none;
-  margin-right:20%;
+  margin-right: 15%;
   margin-bottom: 10%;
   font-size: 300%;
   border:2px solid hotpink;
 }
 
-li: hover {
+li:hover {
   background-color: yellow;
   text-decoration:underline;
+}
+
+.mainmenu {
+  width: 100%;
 }

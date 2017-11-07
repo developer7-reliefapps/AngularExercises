@@ -7,8 +7,6 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { appRoutes } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NoopInterceptor } from './pages/Services/Caching/noop-interceptor';
 
 // components
 import { AppComponent } from './app.component';
@@ -40,7 +38,6 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 // Service
 import { TodoService } from './pages/todo-list/todo.service';
-import { WSSEService } from './components/services-requests/http/wsse.service';
 
 // Directive
 import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
@@ -73,16 +70,10 @@ import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    //InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
-    TodoService,
-    WSSEService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: NoopInterceptor,
-      multi: true
-    }
+    TodoService
   ],
   bootstrap: [AppComponent]
 })
