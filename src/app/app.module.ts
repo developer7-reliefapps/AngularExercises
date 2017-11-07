@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './pages/todo-list/todo-list.component';
 import { YoutubePlayerComponent } from './pages/youtube-player/youtube-player.component';
 import { CalculatorComponent } from './pages/calculator/calculator.component';
+import { RequestComponent } from './components/services-requests/http/request.component';
 
 // Sub-components
 import { SearchBarComponent } from './components/player/search-bar/search-bar.component';
@@ -29,7 +30,7 @@ import { KeyboardComponent } from './components/calculator/keyboard/keyboard.com
 import { ResultComponent } from './components/calculator/result/result.component';
 
 import { CachingInterceptor } from './pages/Services/Caching/caching-interceptor';
-import { CacheComponent } from './components/cache/cache.component';
+import { CacheComponent } from './components/services-requests/cache/cache.component';
 //Pipe
 import { SafePipe } from './pages/youtube-player/safe-pipe';
 
@@ -39,6 +40,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 // Service
 import { TodoService } from './pages/todo-list/todo.service';
+import { WSSEService } from './components/services-requests/http/wsse.service';
 
 // Directive
 import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
@@ -62,7 +64,8 @@ import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
     CachingInterceptor,
     SafePipe,
     DisplayFormDirective,
-    CacheComponent
+    CacheComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import { DisplayFormDirective } from './pages/todo-list/displayForm.directive';
   ],
   providers: [
     TodoService,
+    WSSEService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NoopInterceptor,
