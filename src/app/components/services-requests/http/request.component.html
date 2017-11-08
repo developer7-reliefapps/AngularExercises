@@ -24,6 +24,11 @@
             {{ result.description ? result.description : "No description" }}
           </td>
 
+          <td>
+            <div (click)="deleteNews(result); $event.stopPropagation()">
+              X
+            </div>
+          </td>
         </tr>
 
     </table>
@@ -33,7 +38,6 @@
       <form #newsForm="ngForm">
         <button (click)="unselectNews()">CLOSE</button>
         <button type="submit" (click)="updateNews(selectedNews)">UPDATE</button>
-        <button type="submit" (click)="addNews(selectedNews)">ADD</button>
         <h3>
             <input type="text" id="title" name="title" [(ngModel)]="selectedNews.title" /> (<input type="text" id="id" name="id" [(ngModel)]="selectedNews.id" readonly/>)
         </h3>
@@ -52,16 +56,19 @@
       </form>
     </fieldset>
 
-    <!-- <h2>POST method</h2>
+    <h2>POST method</h2>
     <fieldset *ngIf="!selectedNews">
       <form #addNewsForm="ngForm">
+        <button type="submit" (click)="addNews(selectedNews)">ADD</button>
         <label>Title: </label>
-        <input type="text" id="titleAdd" name="titleAdd"
+        <input type="text" id="titleAdd" name="titleAdd" [(ngModel)]="addedNews.title" />
         <label>Description:</label>
+        <input type="text" id="descriptionAdd" name="descriptionAdd" [(ngModel)]="addedNews.description" />
         <label>Image: </label>
         <label>Content: </label>
+        <input type="text" id="contentAdd" name="contentAdd" [(ngModel)]="addedNews.content" />
       </form>
-    </fieldset> -->
+    </fieldset>
 
 
 

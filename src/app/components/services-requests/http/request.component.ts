@@ -74,7 +74,10 @@ export class RequestComponent implements OnInit{
   /*POST*/
   public addNews(news: News) {
     console.log("Add !");
-    this.http.post(this.url+'/news/public', news);
+    this.http.post(this.url+'/news/public', news).subscribe(res => {
+      res.json() as News;
+    });
+    // Browser console returns Error 405 method not allowed
   }
 
   /*PUT*/
@@ -84,5 +87,10 @@ export class RequestComponent implements OnInit{
   }
 
   /*DELETE*/
+  public deleteNews(news: News) {
+    console.log("Delete !");
+    this.http.delete(this.url+'/news/public', news).subscribe();
+    // Browser console returns Error 417 expectation failed
+  }
 
 }
